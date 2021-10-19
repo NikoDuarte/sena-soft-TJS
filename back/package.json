@@ -1,0 +1,32 @@
+{
+  "name": "bug",
+  "version": "1.0.0",
+  "description": "Back api rest que almacenara toda la logica nesesaria para el proyecto gub SENASOFT",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "nodemon dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NikoDuarte/sena-soft-TJS.git"
+  },
+  "author": "Nicolas Duarte | Kevin Fraile | Miller Nivia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NikoDuarte/sena-soft-TJS/issues"
+  },
+  "homepage": "https://github.com/NikoDuarte/sena-soft-TJS#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.13.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.11"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13"
+  }
+}
