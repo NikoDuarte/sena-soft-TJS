@@ -1,0 +1,47 @@
+body{
+    overflow-x: hidden;
+}
+.container-fluid{
+    background-color: #2997d8;
+    height: 100%;
+}
+.titulo{
+    text-align: center;
+    padding: 5%;
+}
+.titulo h1{
+    color: #fff;
+    font-size: 170px;
+}
+.form-home{
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.form-home h3{
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+}
+.card{
+    border-radius: 3%;
+}
+.card input, .card button{
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.card input::placeholder{
+    text-align: center;
+}
+.card button{
+    background-color: #005c93;
+    border-color: #005c93;
+}
+.card input:focus button:focus{
+    border-color: #2997d8;
+}
+.form-home a{
+    color: blue;
+    text-decoration: none;
+}
