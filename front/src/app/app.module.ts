@@ -6,24 +6,23 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-// Componentes
-import { HomeComponent } from './components/home/home.component';
-import { UnirseSalaComponent } from './components/unirse-sala/unirse-sala.component';
 import { PagesModule } from './pages/pages.module';
+import { ComponentsModule } from './components/components.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    UnirseSalaComponent
+    AppComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     PagesModule,
+    ComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {  }

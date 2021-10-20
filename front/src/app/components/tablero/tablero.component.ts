@@ -7,9 +7,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableroComponent implements OnInit {
 
+  nombre = '';
+  modulo = '';
+  error = '';
+
+  linea1: boolean = false;
+  linea2: boolean = false;
+  linea3: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  mostrarNombre(){
+    this.nombre = 'HOLA'
+    this.linea1 = true;
+  }
+
+  mostrarModulo(){
+    this.modulo = 'MUNDO'
+    this.linea2 = true;
+  }
+
+  mostrarError(){
+    this.error = 'XD'
+    this.linea3 = true;
+  }
+
 
 }
