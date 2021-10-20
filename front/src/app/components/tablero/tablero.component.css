@@ -1,0 +1,66 @@
+#contenedor{
+    background-color: #2997D8;
+}
+
+.fa-comment{
+    color: white;
+    font-size: 50px;
+}
+
+.carta{
+    height: 180px;
+    width: 164px;
+    margin-bottom: 12%;
+    background-color: whitesmoke;
+    padding: 11px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.img-carta{
+    height: 90%;
+    width: 100%;
+    background-color: rgb(73, 73, 73);
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+#tabla{
+    
+    width: 100%;
+    background-color: white;
+   
+}
+
+.carta-tablero{
+    height: 100%;
+    width: 100%;
+    background-color: whitesmoke;
+    padding: 11px;
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+.img-carta-tabla{
+    height: 90%;
+    width: 100%;
+    background-color: rgb(73, 73, 73);
+    
+}
+
+.img-carta-tabla img{
+    height: 100%;
+    width: 100%;
+    
+}
+
