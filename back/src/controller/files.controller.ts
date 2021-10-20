@@ -54,7 +54,7 @@ const upload_img_cards = async(req: Request | any, res: Response) => {
     //* |-> Capturamos el id de la carta a la cual le actualizaremos la img
     const { id } = req.params
     //* |-> Control de errores tryCatch
-    try {
+    try {        
         //* |-> Buscaremos el modelo por el id suministrado
         const findCardsId = await Cards.findById(id)
         //* |-> Si no lo encuentra retornaremos un error 404
@@ -65,9 +65,9 @@ const upload_img_cards = async(req: Request | any, res: Response) => {
             return resp(res, {status: 400, succ: false, msg: 'No se encuentra ninguna archivo en el sistema, por ende no lo podemos almacenar'})
         }
         //* |-> Almacenaremos la img en una variable
-        const attach = req.files.attach
+        const attach = req.files.files
         //* |-> Validamos que solo sea un solo archivo
-        if (attach.length > 0) {
+        if (attach.length > 1) {
             //* |-> Si hay mas de uno retornaeremo un error 400
             return resp(res, { status: 400, succ: false, msg: 'Solo puedes cargar un solo archivo por carta' })
         }
