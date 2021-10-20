@@ -12,9 +12,11 @@ const salaSchema: Schema = new Schema({
     },
     user_admin: {
         type: {
-            id_user: Schema.Types.ObjectId,
-            ref: 'Players',
-            required: true
+            id_user: {
+                type: Schema.Types.ObjectId,
+                ref: 'Players',
+                required: true
+            }
         }
     },
     code: {
@@ -26,9 +28,11 @@ const salaSchema: Schema = new Schema({
         required: true
     },
     players: {
-        type: Schema.Types.ObjectId,
-        ref: 'Players',
-        required: true
+        id_users: {
+            type: Schema.Types.ObjectId,
+            ref: 'Players',
+            required: true
+        }
     },
     questions: {
         type: [
