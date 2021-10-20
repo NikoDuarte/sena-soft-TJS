@@ -57,10 +57,10 @@
             <div class="text-white text-center">
                 <h1>FUE {{ nombre }}<span [hidden]="linea1">__________</span> EN EL MODULO {{ modulo }} <span [hidden]="linea2">_________</span> CON {{ error }} <span [hidden]="linea3">_________</span></h1>
             </div>
-            <div id="tabla" class="p-5">
-                <div class="row">
+            <div id="tabla" class="p-4">
+                <div class="row tit">
                     <h2 class="titulo-cartas">PROGRAMADORES</h2>
-                    <div class="col-6 col-md">
+                    <div class="col-6 col-md prog1">
                         <div class="carta-tablero" (click)="mostrarNombre()">
                             <div class="img-carta-tabla mb-1">
                                 <img src="../../../assets/img/Carolina.svg" alt="">
@@ -118,7 +118,7 @@
                     </div>
                 </div>
                 <h2 class="titulo-cartas">MODULOS</h2>
-                <div class="row">
+                <div class="row tit">
                     <div class="col-6 col-md">
                         <div class="carta-tablero" (click)="mostrarModulo()">
                             <div class="img-carta-tabla mb-1">
@@ -171,7 +171,7 @@
                     </div>
                 </div>
                 <h2 class="titulo-cartas">ERRORES</h2>
-                <div class="row">
+                <div class="row tit">
                     <div class="col-6 col-md">
                         <div class="carta-tablero" (click)="mostrarError()">
                             <div class="img-carta-tabla mb-1">
