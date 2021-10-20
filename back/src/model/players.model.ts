@@ -15,6 +15,10 @@
             type: Boolean,
             required: true
         },
+        code: {
+            type: String,
+            required: true
+        },
         //* |-> Cartas que contendra el jugador (Requerido)
         cards: {
             //* |-> Sera un a matriz de objetos

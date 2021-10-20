@@ -11,28 +11,35 @@ const salaSchema: Schema = new Schema({
         required: true
     },
     user_admin: {
-        type: {
-            id_user: {
-                type: Schema.Types.ObjectId,
-                ref: 'Players',
-                required: true
-            }
-        }
+        type: Schema.Types.ObjectId,
+        ref: 'Players',
+        required: true
     },
     code: {
         type: String,
         required: true
     },
     correct_accusation: {
-        type: String,
-        required: true
+        type: {
+            accusation: {
+                type: String,
+            },
+            id_user_win: {
+                type: Schema.Types.ObjectId,
+                ref: 'Players'
+            }
+        },
     },
     players: {
-        id_users: {
-            type: Schema.Types.ObjectId,
-            ref: 'Players',
-            required: true
-        }
+        type: [
+            {
+                id_users: {
+                    type: Schema.Types.ObjectId,
+                    ref: 'Players',
+                    required: true
+                }
+            }
+        ]
     },
     questions: {
         type: [
