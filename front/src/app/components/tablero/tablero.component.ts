@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-tablero',
@@ -18,9 +17,12 @@ export class TableroComponent implements OnInit {
 
   mensajes: any[] = [];
 
+  ocultar: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.ocultarComponente();
   }
 
   mostrarNombre(){
@@ -50,4 +52,9 @@ export class TableroComponent implements OnInit {
     this.mensajes.push(mensaje);
   }
 
+  ocultarComponente(){
+    setTimeout(() => {
+      this.ocultar = true;
+    }, 6000);
+  }
 }
