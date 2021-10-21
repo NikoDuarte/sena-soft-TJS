@@ -4,7 +4,7 @@
     import { Router } from 'express'
     //* |-> Controlladores
         //? -_ Controlladores de sala
-        import { create_sala, delete_sala, join_player_sala, renew_token } from '../controller/sala.controller'
+        import { create_sala, delete_sala, join_player_sala, renew_token, sala_players } from '../controller/sala.controller'
         //? -_ Controlladores de pregustas
         import { accusation_players, answer_questions, questions_players } from '../controller/quest_accusa.controller'
     //* |-> Middlewares
@@ -19,6 +19,12 @@
             '/renew-token',
             [ valid$token ],
             renew_token
+        )
+        //* |-> Ruta que mostrara los jugadores de una sala
+        router.get(
+            '/:code',
+            [ valid$token ],
+            sala_players
         )
     //? $POST
         //* |-> Ruta que creara la sala

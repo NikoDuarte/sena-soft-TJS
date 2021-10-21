@@ -205,11 +205,33 @@ const renew_token = async(req: Request, res: Response) => {
         return resp(res, {status: 500, succ: false, msg: 'Ups... Ocurrio un problema revisa los logs'})
     }
 }
+//? -_ Metodo que buscara cuantos jugadores hay en x sala
+const sala_players = async(req: Request, res: Response) => {
+    //* |-> Capturamos el codigo de la sala
+    const { code } = req.params
+    //* |-> Control de errores tryCatch
+    try {
+        //* |-> Buscamos la sala por el codigo suministrado
+        const findSalaCode = await Sala.findOne({code}).populate('players.id_users', 'name')
+        //* |-> Si no encuentra ningun documento retornaremos un error 404
+        if(!findSalaCode || findSalaCode === undefined) return resp(res, {status: 404, succ: false, msg: 'Sala no encontrada'})
+        //* |-> Desestructuramos los jugadores
+        const { players } = findSalaCode
+        //* |-> Respondemos un mensaje de exito
+        return resp(res, { status: 200, succ: true, msg: 'Los jugadores conectados hasta el momento son...', data: players })
+    } catch (err) {
+        //*! Imprimimos el error por consola
+        console.log(err);
+        //*! Retornamos un error 500 al cliente que hizo la peticion
+        return resp(res, { status: 500, succ: false, msg: 'Ups... Ocurrio un problema revisa los logs' })
+    }
+}
 /**********/
 // TODO |-> Exportar controladores
 export {
     create_sala,
     join_player_sala,
     delete_sala,
-    renew_token
+    renew_token,
+    sala_players
 }
