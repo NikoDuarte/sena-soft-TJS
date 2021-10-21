@@ -1,15 +1,23 @@
+/* importamos un estilo de letra de google-fontts  (font-family: 'Exo', sans-serif;) */
+@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+
+
+/* este es el contenedor principal de nuestro componenete tablero */
 #contenedor{
     background-color: #2997D8;
     height: 100vh;
 }
 
+/* este es el tamaño de la columna que contiene las cartas */
 .tit .col-6{
     height: 170px;
 }
+/* este es el contenedor del tablero y la pregunta (parte superior) */
 .cont{
     position: relative;
     margin-top: auto;
 }
+/* este es el texto de la pregunta */
 #txt-pregunta h1{
     font-size: 30px;
     margin-bottom: 2%;
@@ -17,12 +25,13 @@
     font-weight: bold;
     text-shadow: 0px 0px 10px rgba(100, 100, 100, 1);
 }
-
+/* este es el logo del chat */
 .fa-comment{
     color: white;
     font-size: 50px;
 }
 
+/* estos son los estilos de las cartas dentro de esta se encientra las imagenes y el nombre (mis cartas)*/
 .carta{
     height: 180px;
     width: 164px;
@@ -33,19 +42,26 @@
     margin-right: auto;
     
 }
-
+/* esa es la imagen de la carta */
 .img-carta{
     height: 90%;
     width: 100%;
     background-color: rgb(73, 73, 73);
     
 }
+
+
+
+/* --------------TABLERO--------- */
+
+/* este es el contenedor tabla aqui setan todas las cartas */
 #tabla{
     width: 100%;
     background-color: white;
     margin-bottom: 0%;
 }
 
+/* estas son las cartas del tablero */
 .carta-tablero{
     height: 100%;
     background-color: whitesmoke;
@@ -53,25 +69,34 @@
     text-align: center;
     margin-bottom: 2%;
 }
+
+/* estos son los titulos de los grupos de cartas */
+
 .titulo-cartas{
 
     color: #003087;
 }
+
+/* este es el efecto hover de las cartas */
 .carta-tablero:hover{
     cursor: pointer;
     transition: all 1s;
     transform: scale(1.04);
     -webkit-box-shadow: 0px 9px 38px -8px rgba(0,48,135,0.87); 
-box-shadow: 0px 9px 38px -8px rgba(0,48,135,0.87);
+    box-shadow: 0px 9px 38px -8px rgba(0,48,135,0.87);
+
+    cursor: pointer;
     
 }
 
+/* este es el nombre de la parte inferior de cada carta de la tabla */
 .carta-tablero span{
 
     color: #003087;
     font-size: 1.2rem;
 }
 
+/* este es el conted¿nedor de la imagen de cada carta del tablero */
 .img-carta-tabla{
     height: 90%;
     width: 100%;
@@ -79,25 +104,65 @@ box-shadow: 0px 9px 38px -8px rgba(0,48,135,0.87);
     
 }
 
+/* esta es la imagen de cada tablero */
 .img-carta-tabla img{
     height: 100%;
     width: 100%;
     
 }
 
+/* botonees centrados */
+.botones{
+    text-align: center;
+}
 
-@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+/* estilos de los botones preguntar y acusar */
+#btn-preguntar, #btn-acusar{
+    margin-top: 3%;
+    padding: 2%;
+    width: 50%;
+    font-size: x-large;
+    box-shadow: 0px 0px 15px -4px #000000;
+}
+/* chat */
 
+.div-chat{
+    position: relative;
+}
+#mensaje{
+    cursor: pointer;
+}
+.modal-footer textarea{
+    resize: none;
+    height: 38px;
+    margin: 2%;
+}
+.modal-title{
+    font-weight: 500;
+}
+.modal-body{
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+#app-animacion{
+    position: relative;
+}
+
+/* -------ANIMACION DEL FONDE DE PATALLA------- */
+
+/* estabelecemos el estilo de letra */
 body{
     font-family: 'Exo', sans-serif;
 }
 
+/* bacgrooud de nuestra animacion */
 .area{
     background: #2997d8;  
     background: -webkit-linear-gradient(to left, #fff, #2997d8);  
     width: 100%;
 }
 
+/* circulos de la animacion (con sus hijos */
 .circles{
     position: absolute;
     top: 0;
@@ -196,6 +261,7 @@ body{
 }
 
 
+/* animacion de los circulos */
 
 @keyframes animate {
 
@@ -213,35 +279,3 @@ body{
 
 }
 
-.botones{
-    text-align: center;
-}
-
-#btn-preguntar, #btn-acusar{
-    margin-top: 3%;
-    padding: 2%;
-    width: 50%;
-    font-size: x-large;
-    box-shadow: 0px 0px 15px -4px #000000;
-}
-.div-chat{
-    position: relative;
-}
-#mensaje{
-    cursor: pointer;
-}
-.modal-footer textarea{
-    resize: none;
-    height: 38px;
-    margin: 2%;
-}
-.modal-title{
-    font-weight: 500;
-}
-.modal-body{
-    padding-top: 1%;
-    padding-bottom: 1%;
-}
-#app-animacion{
-    position: relative;
-}
