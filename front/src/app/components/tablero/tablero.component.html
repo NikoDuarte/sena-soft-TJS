@@ -52,9 +52,9 @@
 
 
     </div>
-    <div class="col-12 col-md-9 p-4 cont">
+    <div class="col-12 col-md-9 cont">
         <div id="texto-llenar">
-            <div class="text-white text-center">
+            <div class="text-white text-center" id="txt-pregunta">
                 <h1>FUE {{ nombre }}<span [hidden]="linea1">__________</span> EN EL MODULO {{ modulo }} <span [hidden]="linea2">_________</span> CON {{ error }} <span [hidden]="linea3">_________</span></h1>
             </div>
             <div id="tabla" class="p-4">
@@ -223,6 +223,15 @@
                     <div class="col-6 col-md">
                     </div>
                 </div>
+            </div>
+            <div class="row botones">
+                <div class="col-lg-6 btn-1">
+                    <button type="button" class="btn btn-primary m-5" id="btn-preguntar">PREGUNTAR</button>
+                </div>
+                <div class="col-lg-6 btn-2">
+                    <button type="button" class="btn btn-danger m-5" id="btn-acusar">ACUSAR</button>
+                </div>
+                
             </div>
         </div>
     </div>

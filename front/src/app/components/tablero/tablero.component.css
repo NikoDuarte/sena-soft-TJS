@@ -7,6 +7,14 @@
 }
 .cont{
     position: relative;
+    margin-top: auto;
+}
+#txt-pregunta h1{
+    font-size: 30px;
+    margin-bottom: 2%;
+    margin-top: 3%;
+    font-weight: bold;
+    text-shadow: 0px 0px 10px rgba(100, 100, 100, 1);
 }
 
 .fa-comment{
@@ -32,10 +40,9 @@
     
 }
 #tabla{
-    
     width: 100%;
     background-color: white;
-   
+    margin-bottom: 0%;
 }
 
 .carta-tablero{
@@ -203,4 +210,16 @@ body{
         border-radius: 50%;
     }
 
+}
+
+.botones{
+    text-align: center;
+}
+
+#btn-preguntar, #btn-acusar{
+    margin-top: 3%;
+    padding: 2%;
+    width: 50%;
+    font-size: x-large;
+    box-shadow: 0px 0px 15px -4px #000000;
 }

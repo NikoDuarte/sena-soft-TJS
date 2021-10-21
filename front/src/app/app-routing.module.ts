@@ -6,11 +6,7 @@ import { UnirseSalaComponent } from './components/unirse-sala/unirse-sala.compon
 import { PagesRoutingModule } from './pages/pages.routes';
 
 const routes: Routes = [
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'home'
-  },
+  { path: '', pathMatch: 'full', redirectTo: 'home'},
   { path: 'home', component: HomeComponent },
   { path: 'unirse', component: UnirseSalaComponent },
   { path: 'barajando', component: AnimacionComponent }

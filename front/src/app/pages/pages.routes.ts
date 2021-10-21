@@ -8,10 +8,7 @@ import { SalaEsperaComponent } from '../components/sala-espera/sala-espera.compo
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'unirse', component: UnirseSalaComponent },
-    { path: 'tablero', component:  TableroComponent},
-    { path: 'espera', component:  SalaEsperaComponent}
-    
-
+    { path: 'tablero', component:  TableroComponent}
 ];
 
 @NgModule({
