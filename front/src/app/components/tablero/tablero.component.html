@@ -226,20 +226,38 @@
             </div>
             <div class="row botones">
                 <div class="col-lg-6 btn-1">
-                    <button type="button" class="btn btn-primary m-5" id="btn-preguntar">PREGUNTAR</button>
+                    <button type="button" class="btn btn-primary m-5" id="btn-preguntar" (click)="preguntarAcusar()">PREGUNTAR</button>
                 </div>
                 <div class="col-lg-6 btn-2">
-                    <button type="button" class="btn btn-danger m-5" id="btn-acusar">ACUSAR</button>
+                    <button type="button" class="btn btn-danger m-5" id="btn-acusar" (click)="preguntarAcusar()">ACUSAR</button>
                 </div>
                 
             </div>
         </div>
     </div>
 
-    <div class="col-md-1 p-4">
-        <div id="mensaje" class="text-center">
+    <div class="col-md-1 p-4 div-chat">
+        <div id="mensaje" class="text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <i class="fas fa-comment"></i><br>
             <h3 class="text-white">Chat</h3>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title" id="exampleModalLabel">Chat</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div *ngFor="let mensaje of mensajes" class="modal-body text-end">
+                {{ mensaje }}
+                </div>
+                <div class="modal-footer input-group">
+                    <input #mensaje class="form-control" id="message-text" placeholder="Mensaje">
+                    <button type="button" class="btn btn-primary" (click)="mostrarMensaje(mensaje.value)">Enviar</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

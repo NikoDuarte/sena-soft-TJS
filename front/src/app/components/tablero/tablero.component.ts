@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-tablero',
@@ -14,6 +15,8 @@ export class TableroComponent implements OnInit {
   linea1: boolean = false;
   linea2: boolean = false;
   linea3: boolean = false;
+
+  mensajes: any[] = [];
 
   constructor() { }
 
@@ -35,5 +38,16 @@ export class TableroComponent implements OnInit {
     this.linea3 = true;
   }
 
+  preguntarAcusar(){
+    if(this.nombre !== '' && this.modulo !== '' && this.error !== ''){
+      alert('Pregunta enviada');
+    } else{
+      alert('Debes seleccionar las cartas antes de preguntar o acusar');
+    }
+  }
+
+  mostrarMensaje( mensaje: string ){
+    this.mensajes.push(mensaje);
+  }
 
 }
