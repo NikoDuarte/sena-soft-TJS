@@ -1,48 +1,51 @@
-<div class="area" >
+<!-- animacion del fondo -->
+<div class="area">
     <ul class="circles">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
     </ul>
 </div>
 
+<!-- este es el componenete de la animacion en las que se barajan las cartas -->
 <app-animacion [hidden]="ocultar" (click)="ocultarComponente()" id="app-animacion"></app-animacion>
 
+<!-- comenzamos el componenete principa (tablero) -->
 <div class="row p-0 m-0" id="contenedor" [hidden]="!ocultar">
-
+    <!-- una columna que tendra todas nuestras cartas (apartado "Mis cartas") -->
     <div class="col text-center p-4" id="contenedor-cartas">
         <h1 class="text-white">Mis cartas</h1>
 
         <div class="row">
-
+            <!-- carta -->
             <div class="carta animate__animated animate__fadeInTopLeft">
                 <div class="img-carta">
                     <img src="" alt="">
                 </div>
                 <span>Nombre</span>
             </div>
-    
+            <!-- carta -->
             <div class="carta animate__animated animate__fadeInLeftBig">
                 <div class="img-carta">
                     <img src="" alt="">
                 </div>
                 <span>Nombre</span>
             </div>
-    
+            <!-- carta -->
             <div class="carta animate__animated animate__fadeInLeftBig">
                 <div class="img-carta">
                     <img src="" alt="">
                 </div>
                 <span>Nombre</span>
             </div>
-    
+            <!-- carta -->
             <div class="carta animate__animated animate__fadeInBottomLeft">
                 <div class="img-carta">
                     <img src="" alt="">
@@ -52,17 +55,23 @@
 
         </div>
 
-
     </div>
+
+    <!-- columna que contiene la preguna,el tablero y los botones (reguntar y acusar)  -->
     <div class="col-12 col-md-9 cont">
         <div id="texto-llenar">
+            <!-- pregunta -->
             <div class="text-white text-center" id="txt-pregunta">
-                <h1>FUE {{ nombre }}<span [hidden]="linea1">__________</span> EN EL MODULO {{ modulo }} <span [hidden]="linea2">_________</span> CON {{ error }} <span [hidden]="linea3">_________</span></h1>
+                <h1>FUE {{ nombre }}<span [hidden]="linea1">__________</span> EN EL MODULO {{ modulo }} <span
+                        [hidden]="linea2">_________</span> CON {{ error }} <span [hidden]="linea3">_________</span></h1>
             </div>
+            <!-- tabla -->
             <div id="tabla" class="p-4">
                 <div class="row tit">
+                    <!-- titulo de el grupo de cartas "PROGRAMADORES" -->
                     <h2 class="titulo-cartas">PROGRAMADORES</h2>
                     <div class="col-6 col-md prog1 ">
+                        <!-- carta del tablero -->
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarNombre()">
                             <div class="img-carta-tabla mb-1">
                                 <img src="../../../assets/img/Carolina.svg" alt="">
@@ -71,6 +80,7 @@
                         </div>
                     </div>
                     <div class="col-6 col-md">
+                        <!-- carta del tablero -->
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarNombre()">
                             <div class="img-carta-tabla mb-1">
                                 <img src="../../../assets/img/Antonio.svg" alt="">
@@ -79,6 +89,7 @@
                         </div>
                     </div>
                     <div class="col-6 col-md">
+                        <!-- carta del tablero -->
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarNombre()">
                             <div class="img-carta-tabla mb-1">
                                 <img src="../../../assets/img/Carlos.svg" alt="">
@@ -87,6 +98,7 @@
                         </div>
                     </div>
                     <div class="col-6 col-md">
+                        <!-- carta del tablero -->
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarNombre()">
                             <div class="img-carta-tabla mb-1">
                                 <img src="../../../assets/img/Juan.svg" alt="">
@@ -95,6 +107,7 @@
                         </div>
                     </div>
                     <div class="col-6 col-md">
+                        <!-- carta del tablero -->
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarNombre()">
                             <div class="img-carta-tabla mb-1">
                                 <img src="../../../assets/img/Juanita.svg" alt="">
@@ -103,6 +116,7 @@
                         </div>
                     </div>
                     <div class="col-6 col-md">
+                        <!-- carta del tablero -->
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarNombre()">
                             <div class="img-carta-tabla mb-1">
                                 <img src="../../../assets/img/Manuel.svg" alt="">
@@ -111,6 +125,7 @@
                         </div>
                     </div>
                     <div class="col-6 col-md">
+                        <!-- carta del tablero -->
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarNombre()">
                             <div class="img-carta-tabla mb-1">
                                 <img src="../../../assets/img/Pedro.svg" alt="">
@@ -119,9 +134,11 @@
                         </div>
                     </div>
                 </div>
+                <!-- titulo del grupo de cartas "MODULOS" -->
                 <h2 class="titulo-cartas">MODULOS</h2>
                 <div class="row tit">
                     <div class="col-6 col-md">
+                        <!-- carta del tablero -->
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarModulo()">
                             <div class="img-carta-tabla mb-1">
                                 <img src="../../../assets/img/Recibo.jpg" alt="">
@@ -130,6 +147,7 @@
                         </div>
                     </div>
                     <div class="col-6 col-md">
+                        <!-- carta del tablero -->
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarModulo()">
                             <div class="img-carta-tabla mb-1 mb-1">
                                 <img src="../../../assets/img/Facturacion.png" alt="">
@@ -138,6 +156,7 @@
                         </div>
                     </div>
                     <div class="col-6 col-md">
+                        <!-- carta del tablero -->
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarModulo()">
                             <div class="img-carta-tabla mb-1">
                                 <img src="../../../assets/img/Contabilidad.png" alt="">
@@ -146,6 +165,7 @@
                         </div>
                     </div>
                     <div class="col-6 col-md">
+                        <!-- carta del tablero -->
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarModulo()">
                             <div class="img-carta-tabla mb-1">
                                 <img src="../../../assets/img/Usuarios.jpg" alt="">
@@ -154,6 +174,7 @@
                         </div>
                     </div>
                     <div class="col-6 col-md">
+                        <!-- carta del tablero -->
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarModulo()">
                             <div class="img-carta-tabla mb-1">
                                 <img src="../../../assets/img/Nomina.jpg" alt="">
@@ -162,6 +183,7 @@
                         </div>
                     </div>
                     <div class="col-6 col-md">
+                        <!-- carta del tablero -->
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarModulo()">
                             <div class="img-carta-tabla mb-1">
                                 <img src="../../../assets/img/Comprobante-contable.png" alt="">
@@ -169,12 +191,15 @@
                             <span>Nombre</span>
                         </div>
                     </div>
+                    <!-- espacio de una "carta" ccarta vacia (solo el espacio) -->
                     <div class="col-6 col-md">
                     </div>
                 </div>
+                <!-- titulo del grupode cartas "ERRORES" -->
                 <h2 class="titulo-cartas">ERRORES</h2>
                 <div class="row tit">
                     <div class="col-6 col-md">
+                        <!-- carta del tablero -->
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarError()">
                             <div class="img-carta-tabla mb-1">
                                 <img src="../../../assets/img/Error-404.jpg" alt="">
@@ -183,6 +208,7 @@
                         </div>
                     </div>
                     <div class="col-6 col-md">
+                        <!-- carta del tablero -->
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarError()">
                             <div class="img-carta-tabla mb-1">
                                 <img src="../../../assets/img/Stack overflow.jpg" alt="">
@@ -191,6 +217,7 @@
                         </div>
                     </div>
                     <div class="col-6 col-md">
+                        <!-- carta del tablero -->
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarError()">
                             <div class="img-carta-tabla mb-1">
                                 <img src="../../../assets/img/memory.png" alt="">
@@ -199,6 +226,7 @@
                         </div>
                     </div>
                     <div class="col-6 col-md">
+                        <!-- carta del tablero -->
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarError()">
                             <div class="img-carta-tabla mb-1">
                                 <img src="../../../assets/img/null pointer.png" alt="">
@@ -207,6 +235,7 @@
                         </div>
                     </div>
                     <div class="col-6 col-md">
+                        <!-- carta del tablero -->
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarError()">
                             <div class="img-carta-tabla mb-1">
                                 <img src="../../../assets/img/syntax error.jpg" alt="">
@@ -215,6 +244,7 @@
                         </div>
                     </div>
                     <div class="col-6 col-md">
+                        <!-- carta del tablero -->
                         <div class="carta-tablero animate__animated animate__zoomIn">
                             <div class="img-carta-tabla mb-1">
                                 <img src="../../../assets/img/Encoding error.png" alt="">
@@ -226,38 +256,45 @@
                     </div>
                 </div>
             </div>
+            <!-- fila de los botones -->
             <div class="row botones">
                 <div class="col-lg-6 btn-1">
-                    <button type="button" class="btn btn-primary m-5 animate__animated animate__pulse" id="btn-preguntar" (click)="preguntarAcusar()">PREGUNTAR</button>
+                    <!--  boton PREGUNTAR -->
+                    <button type="button" class="btn btn-primary m-5 animate__animated animate__pulse"
+                        id="btn-preguntar" (click)="preguntarAcusar()">PREGUNTAR</button>
                 </div>
                 <div class="col-lg-6 btn-2">
-                    <button type="button" class="btn btn-danger m-5 animate__animated animate__pulse" id="btn-acusar" (click)="preguntarAcusar()">ACUSAR</button>
+                    <!-- boton ACUSAR -->
+                    <button type="button" class="btn btn-danger m-5 animate__animated animate__pulse" id="btn-acusar"
+                        (click)="preguntarAcusar()">ACUSAR</button>
                 </div>
-                
+
             </div>
         </div>
     </div>
 
+    <!-- contenedor del chat -->
     <div class="col-md-1 p-4 div-chat">
         <div id="mensaje" class="text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <i class="fas fa-comment"></i><br>
             <h3 class="text-white">Chat</h3>
         </div>
     </div>
-
+    <!-- modal del chat -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                <h1 class="modal-title" id="exampleModalLabel">Chat</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h1 class="modal-title" id="exampleModalLabel">Chat</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div *ngFor="let mensaje of mensajes" class="modal-body text-end">
-                {{ mensaje }}
+                    {{ mensaje }}
                 </div>
                 <div class="modal-footer input-group">
                     <input #mensaje class="form-control" id="message-text" placeholder="Mensaje">
-                    <button type="button" class="btn btn-primary" (click)="mostrarMensaje(mensaje.value)">Enviar</button>
+                    <button type="button" class="btn btn-primary"
+                        (click)="mostrarMensaje(mensaje.value)">Enviar</button>
                 </div>
             </div>
         </div>

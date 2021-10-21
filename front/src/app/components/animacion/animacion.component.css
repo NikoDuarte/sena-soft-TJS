@@ -1,3 +1,4 @@
+/* contenedor de toda nuesto componenete */
 #contenedor{
     height: 100vh;
     width: 100vw;
@@ -6,16 +7,15 @@
     justify-content: center;
     animation: opacidad 6s;
     animation-delay: 3s;
-    
-    
 }
 
-
+/* contenedor de las carta */
 #tabla{
     
     width: 80%;
 }
 
+/* cartas */
 .carta-tablero{
     height: 100%;
     background-color: whitesmoke;
@@ -27,6 +27,7 @@
 box-shadow: 0px 0px 17px 1px rgba(0,0,0,0.51);
 }
 
+/* animacion que mueve la carta a la izquierda */
 .barajar-izquierda{
     animation: voltear 1.2s, barajar-izq 1.2s ;
     animation-fill-mode: forwards;
@@ -34,72 +35,85 @@ box-shadow: 0px 0px 17px 1px rgba(0,0,0,0.51);
     
 }
 
+/* animacion que mueve la carta a la derecha */
 .barajar-derecha{
     animation: voltear 1.2s, barajar-der 1.2s ;
     animation-fill-mode: forwards;
     animation-delay: 2s;;
 }
 
-.barajar-arriba{
-    animation: voltear 1.2s, barajar-arr 1.2s ;
-    animation-fill-mode: forwards;
-    animation-delay: 2s;
-}
-
-
-.barajar-arriba-izquierda{
-    animation: voltear 1s, barajar-arr-izq 1s ;
-    animation-fill-mode: forwards;
-    animation-delay: 2s;
-}
-.barajar-arriba-derecha{
-    animation: voltear 1.2s, barajar-arr-der 1.2s ;
-    animation-fill-mode: forwards;
-    animation-delay: 2s;
-}
-
+/* animacion que mueve la carta abajo */
 .barajar-abajo{
     animation: voltear 1s, barajar-aba 1s;
     animation-fill-mode: forwards;
     animation-delay: 2s;
 }
 
+/* animacion que mueve la carta a arriba */
+.barajar-arriba{
+    animation: voltear 1.2s, barajar-arr 1.2s ;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+}
+
+/* animacion que mueve la carta a arriba y a la izquierda */
+.barajar-arriba-izquierda{
+    animation: voltear 1s, barajar-arr-izq 1s ;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+}
+
+/* animacion que mueve la carta a arriba y a la derecha */
+.barajar-arriba-derecha{
+    animation: voltear 1.2s, barajar-arr-der 1.2s ;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+}
+
+
+/* animacion que mueve la carta abajo a la derecha */
 .barajar-abajo-izquierda{
     animation: voltear 1s, barajar-aba-izq 1s ;
     animation-fill-mode: forwards;
     animation-delay: 2s;
 }
 
+/* animacion que mueve la carta abajo a la izquierda */
 .barajar-abajo-derecha{
     animation: voltear 1.2s, barajar-aba-der 1.2s ;
     animation-fill-mode: forwards;
     animation-delay: 2s;
 }
 
+/* animacion que voltea la carta  */
 .voltear-imagen{
     animation: voltear 1s, voltear-imagen 0.36s;
     animation-fill-mode: forwards;
     animation-delay: 2s;
 }
+
+/* nombre de la carta */
 .carta-tablero span{
 
     color: #003087;
     font-size: 1.2rem;
 }
 
+/* conteneddero de la imagen de la carta */
 .img-carta-tabla{
     height: 90%;
     width: 100%;
     background-color: rgb(73, 73, 73);
     
 }
-
+/* imagen de la carta */
 .img-carta-tabla img{
     height: 100%;
     width: 100%;
     
 }
 
+/* ---------ANIMACIONES de barajar------------ */
 @keyframes barajar-izq {
     0%{
 
@@ -300,7 +314,7 @@ box-shadow: 0px 0px 17px 1px rgba(0,0,0,0.51);
     }
 }
 
-
+/* ocultar la animacion en tamaños bajos */
 @media (max-width: 1050px) {
     #contenedor {
       display: none;
