@@ -7,12 +7,9 @@ import { HomeComponent } from './home/home.component';
 import { UnirseSalaComponent } from './unirse-sala/unirse-sala.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { SalaEsperaComponent } from './sala-espera/sala-espera.component';
-<<<<<<< HEAD
 import { TableroComponent } from './tablero/tablero.component';
-
-=======
 import { AnimacionComponent } from './animacion/animacion.component';
->>>>>>> 73cc3fa6cfe2b59a94ad7dcaef185030587316db
+
 
 
 @NgModule({
@@ -20,11 +17,8 @@ import { AnimacionComponent } from './animacion/animacion.component';
     HomeComponent,
     UnirseSalaComponent,
     SalaEsperaComponent,
-<<<<<<< HEAD
-    TableroComponent
-=======
+    TableroComponent,
     AnimacionComponent
->>>>>>> 73cc3fa6cfe2b59a94ad7dcaef185030587316db
   ],
   imports: [
     CommonModule,
