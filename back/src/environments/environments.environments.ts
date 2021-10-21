@@ -18,9 +18,12 @@ dotenv.config()
     const _url_connect_: string = `mongodb+srv://${_user_mongo_}:${_pass_mongo_}@gub.dccrb.mongodb.net/gub`
     //* |-> URL de las rutas endpoints
     const _url_concat_: string = String(process.env.URL_CONCAT)
+    //* |-> Secrect token
+    const _secrect_token_: string = String(process.env.SECRECT_TOKEN)
 // TODO -> Exportacion de modulos
 export {
     _port_,
     _url_connect_,
-    _url_concat_
+    _url_concat_,
+    _secrect_token_
 }

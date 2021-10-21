@@ -22,7 +22,20 @@ const salaSchema: Schema = new Schema({
     correct_accusation: {
         type: {
             accusation: {
-                type: String,
+                type: {
+                    quien: {
+                        type: Schema.Types.ObjectId,
+                        ref: 'Cards'
+                    },
+                    modulo: {
+                        type: Schema.Types.ObjectId,
+                        ref: 'Cards'
+                    },
+                    error: {
+                        type: Schema.Types.ObjectId,
+                        ref: 'Cards'
+                    },
+                },
             },
             id_user_win: {
                 type: Schema.Types.ObjectId,
@@ -49,7 +62,20 @@ const salaSchema: Schema = new Schema({
                     ref: 'Players'
                 },
                 question: {
-                    type: String
+                    type: {
+                        quien: {
+                            type: Schema.Types.ObjectId,
+                            ref: 'Cards'
+                        },
+                        modulo: {
+                            type: Schema.Types.ObjectId,
+                            ref: 'Cards'
+                        },
+                        error: {
+                            type: Schema.Types.ObjectId,
+                            ref: 'Cards'
+                        },
+                    }
                 }
             }
         ]
@@ -62,7 +88,20 @@ const salaSchema: Schema = new Schema({
                     ref: 'Players'
                 },
                 accusation: {
-                    type: String
+                    type: {
+                        quien: {
+                            type: Schema.Types.ObjectId,
+                            ref: 'Cards'
+                        },
+                        modulo: {
+                            type: Schema.Types.ObjectId,
+                            ref: 'Cards'
+                        },
+                        error: {
+                            type: Schema.Types.ObjectId,
+                            ref: 'Cards'
+                        },
+                    }
                 }
             }
         ]

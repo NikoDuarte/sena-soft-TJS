@@ -13,8 +13,25 @@ const random_code = () => {
     }
     return code;
 }
+//? -_ Definicion del servicio que devolvera aleatoreas las cartas
+const random_cards = (cards: any[]) => {
+    //* |-> Variable que contendra el resultado
+    var currentIndex = cards.length, temporaryValue, randomIndex;    
+    // Mientras queden elementos a mezclar...
+    while (0 !== currentIndex) {
+        // Seleccionar un elemento sin mezclar...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        // E intercambiarlo con el elemento actual
+        temporaryValue = cards[currentIndex];
+        cards[currentIndex] = cards[randomIndex];
+        cards[randomIndex] = temporaryValue;
+    }
+    return cards
+}
 /***********/
 // TODO |-> Exportamos el servicio
 export {
-    random_code
+    random_code,
+    random_cards
 }

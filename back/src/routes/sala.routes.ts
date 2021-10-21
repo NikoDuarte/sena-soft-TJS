@@ -3,7 +3,12 @@
     //* |-> Router de express
     import { Router } from 'express'
     //* |-> Controlladores
-    import { create_sala, delete_sala, join_player_sala } from '../controller/sala.controller'
+        //? -_ Controlladores de sala
+        import { create_sala, delete_sala, join_player_sala } from '../controller/sala.controller'
+        //? -_ Controlladores de pregustas
+        import { accusation_players, questions_players } from '../controller/quest_accusa.controller'
+    //* |-> Middlewares
+    import { valid$token } from '../middleware/JWT.middleware'
 /***********/
 //? -_ Configuracion de rutas
     const router: Router = Router()
@@ -23,6 +28,18 @@
             join_player_sala
         )
     //? $PUT
+        //* |-> Ruta que enviara preguntas
+        router.patch(
+            '/:id',
+            [ valid$token ],
+            questions_players
+        )
+        //* |-> Ruta que enviara y validara la acusacion
+        router.patch(
+            '/accusation/:id',
+            [ valid$token ],
+            accusation_players
+        )
     //? $DELETE
         //* |-> Ruta que eliminara la sala segun el id
         router.delete(

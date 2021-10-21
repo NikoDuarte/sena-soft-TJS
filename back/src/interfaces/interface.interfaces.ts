@@ -7,8 +7,14 @@
         msg: string,
         data?: any
     }
+    //* |-> Interfaz payload token
+    interface _token {
+        code: string,
+        id_user: string
+    }
 /*********/
 // TODO |-> Exportacion de interfaces
 export {
-    _resp
+    _resp,
+    _token
 }
