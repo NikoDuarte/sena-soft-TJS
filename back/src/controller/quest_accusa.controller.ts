@@ -103,12 +103,12 @@ const accusation_players = async(req: Request, res: Response) => {
             //* |-> Sabremos que en la sala hay un ganador
             win_player = true
             //* |-> Actualizaremos la informacion del jugador ganador y agregaremos el acusamiento
-            users_player = await Sala.findByIdAndUpdate(info_sala._id, { correct_accusation: {accusation: info_sala.correct_accusation.accusation, id_user_win: id_user}, accusations: [...info_sala.accusations, {id_user_accus: id_user, accusation}] }, {new: true})
+            users_player = await Sala.findByIdAndUpdate(info_sala._id, { correct_accusation: {accusation: info_sala.correct_accusation.accusation, id_user_win: id_user}, accusations: [...info_sala.accusations, {id_user_accus: id_user, accusation}] }, {new: true}).populate('Players').populate('Cards')
         }else{
             //* |-> Sabemos que no hay jugadores ganados en la sala
             win_player = false
             //* |-> Solo agregamos el acusamiento sin mencionar un ganador
-            users_player = await Sala.findByIdAndUpdate(info_sala._id, { accusations: [...info_sala.accusations, {id_user_accus: id_user, accusation}] }, {new: true})
+            users_player = await Sala.findByIdAndUpdate(info_sala._id, { accusations: [...info_sala.accusations, {id_user_accus: id_user, accusation}] }, {new: true}).populate('Players').populate('Cards')
         }
         //* |-> Buscaremos el index de de la posicion actual
         const index_player: number = SalaId.indexOf(id_user)
