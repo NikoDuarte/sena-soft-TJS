@@ -1,11 +1,15 @@
 #contenedor{
     height: 100vh;
     width: 100vw;
-    background-color: #6dadd1;
+    background-color: #2997D8;
     display: flex;
     justify-content: center;
+    animation: opacidad 6s;
+    animation-delay: 3s;
+    
     
 }
+
 
 #tabla{
     
@@ -277,6 +281,19 @@ box-shadow: 0px 0px 17px 1px rgba(0,0,0,0.51);
         opacity: 1;
        
     }
+    100%{
+       
+        opacity: 0;;
+    }
+}
+
+@keyframes opacidad {
+    0%{
+
+
+
+    }
+    
     100%{
        
         opacity: 0;;

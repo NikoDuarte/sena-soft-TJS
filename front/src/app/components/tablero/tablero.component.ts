@@ -25,34 +25,40 @@ export class TableroComponent implements OnInit {
     this.ocultarComponente();
   }
 
-  mostrarNombre(){
+  mostrarNombre() {
     this.nombre = 'HOLA'
     this.linea1 = true;
   }
 
-  mostrarModulo(){
+  mostrarModulo() {
     this.modulo = 'MUNDO'
     this.linea2 = true;
   }
 
-  mostrarError(){
+  mostrarError() {
     this.error = 'XD'
     this.linea3 = true;
   }
 
-  preguntarAcusar(){
-    if(this.nombre !== '' && this.modulo !== '' && this.error !== ''){
+  preguntarAcusar() {
+    if (this.nombre !== '' && this.modulo !== '' && this.error !== '') {
       alert('Pregunta enviada');
-    } else{
+      this.nombre = '';
+      this.modulo = '';
+      this.error = '';
+      this.linea1 = false;
+      this.linea2 = false;
+      this.linea3 = false;
+    } else {
       alert('Debes seleccionar las cartas antes de preguntar o acusar');
     }
   }
 
-  mostrarMensaje( mensaje: string ){
+  mostrarMensaje(mensaje: string) {
     this.mensajes.push(mensaje);
   }
 
-  ocultarComponente(){
+  ocultarComponente() {
     setTimeout(() => {
       this.ocultar = true;
     }, 6000);
