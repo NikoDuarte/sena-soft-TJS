@@ -8,8 +8,6 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'unirse', component: UnirseSalaComponent },
     { path: 'tablero', component:  TableroComponent}
-    
-
 ];
 
 @NgModule({
