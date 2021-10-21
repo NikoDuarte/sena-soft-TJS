@@ -136,7 +136,6 @@ const join_player_sala = async(req: Request, res: Response) => {
                 status: new_cards_player.find(x => x.id_cards === e._id) ? true : false
             })
         }
-         console.log(cards_player);
         //* |-> Crearemos el nuevo jugador
         const user = {
             name: name_player,
@@ -189,10 +188,28 @@ const delete_sala = async(req: Request, res: Response) => {
         return resp(res, {status: 500, succ: false, msg: 'Ups... Ocurrio un problema revisa los logs'})
     }
 }
+//? -_ Metodo que renovara el token
+const renew_token = async(req: Request, res: Response) => {
+    //* |-> Capturamos la informacion del token
+    const { gub:{sala:{code, info_sala}, id_user} }: any = req
+    //* |-> Control de errores tryCatch
+    try {
+        //* |-> Generaremos un token
+        const token = await generateJWT({code, id_user})
+        //* |-> Respondemos un mensaje de exito
+        return resp(res, { status: 200, succ: true, msg: 'Generado el token correctamente', data: token })
+    } catch (err) {
+        //*! Imprimimos el error por consola
+        console.log(err);
+        //*! Respondemos un error 500 al cliente que realizo la peticion
+        return resp(res, {status: 500, succ: false, msg: 'Ups... Ocurrio un problema revisa los logs'})
+    }
+}
 /**********/
 // TODO |-> Exportar controladores
 export {
     create_sala,
     join_player_sala,
-    delete_sala
+    delete_sala,
+    renew_token
 }

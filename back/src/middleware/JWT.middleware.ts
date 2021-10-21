@@ -38,7 +38,7 @@ const valid$token = async(req: Request | any, res: Response, next: NextFunction)
             return resp(req, { status: 404, succ: false, msg: 'Usuario no encontrado' })
         }
         //* |-> Validamos si el turno del usuario este habilitado
-        if (findPlayersId.status === false) {
+        if (findPlayersId.status !== true) {
             //* |-> Si no es el turno retornaremos un 400
             return resp(req, { status: 400, succ: false, msg: 'Lo sentimos no es tu turno' })
         }

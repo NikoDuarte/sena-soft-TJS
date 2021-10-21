@@ -4,9 +4,9 @@
     import { Router } from 'express'
     //* |-> Controlladores
         //? -_ Controlladores de sala
-        import { create_sala, delete_sala, join_player_sala } from '../controller/sala.controller'
+        import { create_sala, delete_sala, join_player_sala, renew_token } from '../controller/sala.controller'
         //? -_ Controlladores de pregustas
-        import { accusation_players, questions_players } from '../controller/quest_accusa.controller'
+        import { accusation_players, answer_questions, questions_players } from '../controller/quest_accusa.controller'
     //* |-> Middlewares
     import { valid$token } from '../middleware/JWT.middleware'
 /***********/
@@ -14,6 +14,12 @@
     const router: Router = Router()
 //? -_ Descripcion de las rutas
     //? $GET
+        //* |-> Ruta que renovara el token de acceso
+        router.get(
+            '/renew-token',
+            [ valid$token ],
+            renew_token
+        )
     //? $POST
         //* |-> Ruta que creara la sala
         router.post(
@@ -28,6 +34,12 @@
             join_player_sala
         )
     //? $PUT
+        //* |-> Ruta que respondera con una carta segun la respuesta
+        router.put(
+            '/:id',
+            [ valid$token ],
+            answer_questions
+        )
         //* |-> Ruta que enviara preguntas
         router.patch(
             '/:id',
