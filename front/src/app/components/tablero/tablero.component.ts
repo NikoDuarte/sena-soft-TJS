@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-tablero',
@@ -11,6 +12,8 @@ export class TableroComponent implements OnInit {
   modulo = '';
   error = '';
 
+  public cards: any
+
   linea1: boolean = false;
   linea2: boolean = false;
   linea3: boolean = false;
@@ -19,9 +22,20 @@ export class TableroComponent implements OnInit {
 
   ocultar: boolean = false;
 
-  constructor() { }
+  constructor( private apiservice: ApiService ) { }
 
   ngOnInit(): void {
+
+    this.apiservice.getCarta()
+                  .subscribe( ({data}: any) => {
+                    const new_data = {
+                      quien: data.filter((x: any) => x.type === 'quien'),
+                      modulo: data.filter((x: any) => x.type === 'modulo'),
+                      error: data.filter((x: any) => x.type === 'error')
+                    }                    
+                    this.cards = new_data
+                  } )
+
     this.ocultarComponente();
   }
 

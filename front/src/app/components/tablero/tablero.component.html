@@ -62,111 +62,23 @@
             <div id="tabla" class="p-4">
                 <div class="row tit">
                     <h2 class="titulo-cartas">PROGRAMADORES</h2>
-                    <div class="col-6 col-md prog1 ">
+                    <div class="col-6 col-md prog1" *ngFor="let ci of cards?.quien">
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarNombre()">
                             <div class="img-carta-tabla mb-1">
-                                <img src="../../../assets/img/Carolina.svg" alt="">
+                                <img src="https://sena-nexus-back.herokuapp.com/soft/v1/api/files?id={{ci._id}}" [alt]="ci.name_card">
                             </div>
-                            <span>Nombre</span>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md">
-                        <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarNombre()">
-                            <div class="img-carta-tabla mb-1">
-                                <img src="../../../assets/img/Antonio.svg" alt="">
-                            </div>
-                            <span>Nombre</span>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md">
-                        <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarNombre()">
-                            <div class="img-carta-tabla mb-1">
-                                <img src="../../../assets/img/Carlos.svg" alt="">
-                            </div>
-                            <span>Nombre</span>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md">
-                        <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarNombre()">
-                            <div class="img-carta-tabla mb-1">
-                                <img src="../../../assets/img/Juan.svg" alt="">
-                            </div>
-                            <span>Nombre</span>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md">
-                        <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarNombre()">
-                            <div class="img-carta-tabla mb-1">
-                                <img src="../../../assets/img/Juanita.svg" alt="">
-                            </div>
-                            <span>Nombre</span>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md">
-                        <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarNombre()">
-                            <div class="img-carta-tabla mb-1">
-                                <img src="../../../assets/img/Manuel.svg" alt="">
-                            </div>
-                            <span>Nombre</span>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md">
-                        <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarNombre()">
-                            <div class="img-carta-tabla mb-1">
-                                <img src="../../../assets/img/Pedro.svg" alt="">
-                            </div>
-                            <span>Nombre</span>
+                            <span>{{ci.name_card}}</span>
                         </div>
                     </div>
                 </div>
                 <h2 class="titulo-cartas">MODULOS</h2>
                 <div class="row tit">
-                    <div class="col-6 col-md">
+                    <div class="col-6 col-md" *ngFor="let cm of cards?.modulo">
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarModulo()">
                             <div class="img-carta-tabla mb-1">
-                                <img src="../../../assets/img/Recibo.jpg" alt="">
+                                <img src="https://sena-nexus-back.herokuapp.com/soft/v1/api/files?id={{cm._id}}" [alt]="cm.name_card">
                             </div>
-                            <span>Nombre</span>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md">
-                        <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarModulo()">
-                            <div class="img-carta-tabla mb-1 mb-1">
-                                <img src="../../../assets/img/Facturacion.png" alt="">
-                            </div>
-                            <span>Nombre</span>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md">
-                        <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarModulo()">
-                            <div class="img-carta-tabla mb-1">
-                                <img src="../../../assets/img/Contabilidad.png" alt="">
-                            </div>
-                            <span>Nombre</span>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md">
-                        <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarModulo()">
-                            <div class="img-carta-tabla mb-1">
-                                <img src="../../../assets/img/Usuarios.jpg" alt="">
-                            </div>
-                            <span>Nombre</span>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md">
-                        <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarModulo()">
-                            <div class="img-carta-tabla mb-1">
-                                <img src="../../../assets/img/Nomina.jpg" alt="">
-                            </div>
-                            <span>Nombre</span>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md">
-                        <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarModulo()">
-                            <div class="img-carta-tabla mb-1">
-                                <img src="../../../assets/img/Comprobante-contable.png" alt="">
-                            </div>
-                            <span>Nombre</span>
+                            <span>{{cm.name_card}}</span>
                         </div>
                     </div>
                     <div class="col-6 col-md">
@@ -174,52 +86,12 @@
                 </div>
                 <h2 class="titulo-cartas">ERRORES</h2>
                 <div class="row tit">
-                    <div class="col-6 col-md">
+                    <div class="col-6 col-md" *ngFor="let ce of cards?.error">
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarError()">
                             <div class="img-carta-tabla mb-1">
-                                <img src="../../../assets/img/Error-404.jpg" alt="">
+                                <img src="https://sena-nexus-back.herokuapp.com/soft/v1/api/files?id={{ce._id}}" [alt]="ce.name_card">
                             </div>
-                            <span>Nombre</span>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md">
-                        <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarError()">
-                            <div class="img-carta-tabla mb-1">
-                                <img src="../../../assets/img/Stack overflow.jpg" alt="">
-                            </div>
-                            <span>Nombre</span>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md">
-                        <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarError()">
-                            <div class="img-carta-tabla mb-1">
-                                <img src="../../../assets/img/memory.png" alt="">
-                            </div>
-                            <span>Nombre</span>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md">
-                        <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarError()">
-                            <div class="img-carta-tabla mb-1">
-                                <img src="../../../assets/img/null pointer.png" alt="">
-                            </div>
-                            <span>Nombre</span>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md">
-                        <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarError()">
-                            <div class="img-carta-tabla mb-1">
-                                <img src="../../../assets/img/syntax error.jpg" alt="">
-                            </div>
-                            <span>Nombre</span>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md">
-                        <div class="carta-tablero animate__animated animate__zoomIn">
-                            <div class="img-carta-tabla mb-1">
-                                <img src="../../../assets/img/Encoding error.png" alt="">
-                            </div>
-                            <span>Nombre</span>
+                            <span>{{ce.name_card}}</span>
                         </div>
                     </div>
                     <div class="col-6 col-md">
