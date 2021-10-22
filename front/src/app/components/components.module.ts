@@ -9,6 +9,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { SalaEsperaComponent } from './sala-espera/sala-espera.component';
 import { TableroComponent } from './tablero/tablero.component';
 import { AnimacionComponent } from './animacion/animacion.component';
+import { GanadoresComponent } from './ganadores/ganadores.component';
 
 
 
@@ -18,7 +19,8 @@ import { AnimacionComponent } from './animacion/animacion.component';
     UnirseSalaComponent,
     SalaEsperaComponent,
     TableroComponent,
-    AnimacionComponent
+    AnimacionComponent,
+    GanadoresComponent
   ],
   imports: [
     CommonModule,
