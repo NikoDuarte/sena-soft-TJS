@@ -17,7 +17,7 @@ describe('TableroComponent', () => {
     fixture = TestBed.createComponent(TableroComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+  }); 
 
   it('should create', () => {
     expect(component).toBeTruthy();
