@@ -6,7 +6,7 @@
         //? -_ Controlladores de sala
         import { create_sala, delete_sala, join_player_sala, renew_token, sala_players } from '../controller/sala.controller'
         //? -_ Controlladores de pregustas
-        import { accusation_players, answer_questions, questions_players } from '../controller/quest_accusa.controller'
+        import { accusation_players, questions_players } from '../controller/quest_accusa.controller'
     //* |-> Middlewares
     import { valid$token } from '../middleware/JWT.middleware'
 /***********/
@@ -40,12 +40,6 @@
             join_player_sala
         )
     //? $PUT
-        //* |-> Ruta que respondera con una carta segun la respuesta
-        router.put(
-            '/:id',
-            [ valid$token ],
-            answer_questions
-        )
         //* |-> Ruta que enviara preguntas
         router.patch(
             '/:id',

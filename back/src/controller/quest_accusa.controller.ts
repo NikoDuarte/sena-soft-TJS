@@ -66,8 +66,10 @@ const questions_players = async(req: Request, res: Response) => {
         const new_shift = await Players.findByIdAndUpdate(info, { status: true }, {new: true})
         //* |-> Añadiremos la pregunta en el arreglo para tener el historial
         const new_questions = await Sala.findByIdAndUpdate(info_sala._id, { questions: [...info_sala.questions, {id_user_quest: id_user, question}] }, {new: true})
+        //* |-> Respondemos la pregunta automaticamente despues de que se registre
+        await answer_questions({code: code, info_sala: new_questions}, res)
         //* |-> Respondemos al cliente un mensaje de exito
-        return resp(res, {status: 200, succ: true, msg: 'Pregunta añadida!', data: {shift:{old_shift, new_shift}, question: new_questions}})
+        //return resp(res, {status: 200, succ: true, msg: 'Pregunta añadida!', data: {shift:{old_shift, new_shift}, question: new_questions}})
     } catch (err) {
         //*! Imprimimos el error por consola
         console.log(err);
@@ -135,28 +137,26 @@ const accusation_players = async(req: Request, res: Response) => {
     }
 }
 //? -_ Metod que respondera la pregunta realizada
-const answer_questions = async(req: Request, res: Response) => {
-    //* |-> Capturaremos la carta de la request
-    const { card } = req.body
-    //* |-> Capturamos la info del token
-    const { gub:{sala:{code, info_sala}, id_user} }: any = req
+const answer_questions = async(sala:{code: string, info_sala: any}, res: Response) => {
+    //* |-> Capturamos la ultima pregunta realizada
+    const ultime_quest: number = sala.info_sala.questions.length -1
+    //* |-> Buscamos la pregunta por ese indice
+    const info = sala.info_sala.questions.find((e: any, i: any) => i === ultime_quest)    
     //* |-> Control de errores tryCatch
     try {
+        /*
         //* |-> Buscamos la carta que solicitan
-        const findCardId = await Cards.findById(card)
+        const findCardId = await Cards.findById(sala.info_sala.questions.question)
         //* |-> Si no encuentra ninguno retornara un error 404
         if (!findCardId || findCardId === undefined) {
             return resp(res, {status: 404, succ: false, msg: 'Carta no encontrada'})
         }
-        //* |-> Capturamos la ultima pregunta realizada
-        const ultime_quest: number = info_sala.questions.length -1
-        //* |-> Buscamos la pregunta por ese indice
-        const info = info_sala.questions.find((e: any, i: any) => i === ultime_quest)
+        */
         //* |-> Buscaremos si se encuentra la carta que sugirio en la pregunta realizada
         let new_list_player
-        if (info.question.quien.toString() === card || info.question.modulo.toString() === card || info.question.error.toString() === card) {
-            //* |-> Buscamos al usuario por el id
-            const findPlayerId = await Players.findById(info.id_user_quest)
+        if (info.question.quien.toString() || info.question.modulo.toString() || info.question.error.toString()) {
+            //* |-> Buscamos al usuario que realizo la pregunta por el id
+            const findPlayerId = await Players.findById(info.id_user_quest)            
             //* |-> Mapeamos el resultado
             const list_map = findPlayerId.list.map(
                 (e: any) => {                    
@@ -165,11 +165,11 @@ const answer_questions = async(req: Request, res: Response) => {
             )
             new_list_player = findPlayerId.list
             //* |-> Buscaremos el index de de la posicion actual
-            const index_card: number = list_map.indexOf(card)
+            const index_card: number = list_map.indexOf(info.question.quien.toString() && info.question.modulo.toString() && info.question.error.toString())
             //* |-> Nuevo dato
-            const new_list = findPlayerId.list[index_card] = { id_card: findPlayerId.list[index_card].id_card, status: true, id_user_have: info.id_user_quest }
+            const new_list = { id_card: findPlayerId.list[index_card].id_card, status: true, id_user_have: info.id_user_quest }
             new_list_player.splice(index_card, 1)
-            new_list_player.push(new_list)
+            new_list_player.push(new_list)            
         }
         //* |-> Actualizaremos la lista del jugador que pregunto
         const player_list = await Players.findByIdAndUpdate(info.id_user_quest, { list: new_list_player }, { new: true })
@@ -186,6 +186,5 @@ const answer_questions = async(req: Request, res: Response) => {
 // TODO |-> Exportacion de controladores
 export {
     questions_players,
-    accusation_players,
-    answer_questions
+    accusation_players
 }
