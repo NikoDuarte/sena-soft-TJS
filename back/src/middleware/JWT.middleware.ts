@@ -18,13 +18,13 @@ const valid$token = async(req: Request | any, res: Response, next: NextFunction)
     //* |-> Capturaremos el token de los headers
     const token = req.header('gub-tok')
     //* |-> Si no viene el token devolveremos un error 401
-    if (!token) {
+    if (!token || token === '' || token === undefined) {
         return resp(res, { status: 401, succ: false, msg: 'Peticion no autorizada' })
     }
     //* Control de errores tryCatch
     try {
         //* |-> Extraemos la informacion del token
-        const { code, id_user }: any = await jwt.verify(token, _secrect_token_)
+        const { code, id_user }: any = jwt.verify(token, _secrect_token_)
         //* |-> Buscamos si existe una sala con ese code
         const findSalaCode = await Sala.findOne({code})
         //* |-> Si no existe una sala retornaremos un 404
@@ -36,11 +36,6 @@ const valid$token = async(req: Request | any, res: Response, next: NextFunction)
         //* |-> Si no encuentra ningun documento retornaremos un error 404
         if (!findPlayersId || findPlayersId === undefined) {
             return resp(req, { status: 404, succ: false, msg: 'Usuario no encontrado' })
-        }
-        //* |-> Validamos si el turno del usuario este habilitado
-        if (findPlayersId.status !== true) {
-            //* |-> Si no es el turno retornaremos un 400
-            return resp(req, { status: 400, succ: false, msg: 'Lo sentimos no es tu turno' })
         }
         //* |-> añadimos a la request la informacion del token
         req.gub = {sala:{code, info_sala: findSalaCode}, id_user}

@@ -11,16 +11,8 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home'},
   { path: 'home', component: HomeComponent },
   { path: 'unirse', component: UnirseSalaComponent },
-<<<<<<< HEAD
-  { path: 'sala', component: SalaEsperaComponent },
+  { path: 'sala', component: SalaEsperaComponent, canActivate: [SalaGuardsGuard] },
   { path: 'ganador', component: GanadoresComponent }
-=======
-  { 
-    path: 'sala', 
-    component: SalaEsperaComponent,
-    canActivate: [SalaGuardsGuard]
-  }
->>>>>>> 96e6dce45d7ebe99a79991e246a575aa379865f8
 
 ];
 

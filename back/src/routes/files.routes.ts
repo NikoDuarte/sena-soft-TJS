@@ -11,7 +11,7 @@
     //? $GET
         //* |-> Ruta que mostrara la img segun el id de la card
         router.get(
-            '/:id',
+            '/',
             view_img_cards
         )
     //? $POST        

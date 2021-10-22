@@ -40,7 +40,9 @@ const create_sala = async(req: Request, res: Response) => {
         const new_cards_player = cards_player.map(
             (e: any) => {
                 return {
-                    id_cards: e._id
+                    id_cards: e._id,
+                    name_card: e.name_card,
+                    type: e.type
                 }
             }
         )
@@ -50,8 +52,12 @@ const create_sala = async(req: Request, res: Response) => {
         for (let i = 0; i < findAllCards.length; i++) {
             const e = findAllCards[i];            
             list.push({
-                id_card: e._id,
-                status: new_cards_player.find(x => x.id_cards === e._id) ? true : false
+                id_card: {
+                    _id: e._id,
+                    name_card: e.name_card,
+                    type: e.type,
+                    status: new_cards_player.find(x => x.id_cards === e._id) ? true : false
+                }
             })
         }
         //* |-> Crearemos un codigo de 5 caracteres
@@ -90,7 +96,7 @@ const create_sala = async(req: Request, res: Response) => {
         //* |-> Generamos el token de acceso
         const token = await generateJWT({code: new_code[1], id_user: id_admin})
         //* |-> Respondemos un mensaje de exito cuando se cree la partida
-        return resp(res, {status: 200, succ: true, msg: 'Se creo la sala! Estaremos esperando 3 jugadores mas', data: {code_sala: new_code[1], token, players: new_sala.players}})
+        return resp(res, {status: 200, succ: true, msg: 'Se creo la sala! Estaremos esperando 3 jugadores mas', data: {code_sala: new_code[1], token, player_info: user}})
     } catch (err) {
         //*! Imprimimos el error por consola
         console.log(err);
@@ -105,7 +111,7 @@ const join_player_sala = async(req: Request, res: Response) => {
     //* |-> Control de errores tryCatch
     try {
         //* |-> Buscamos todas las cartas
-        const findAllCards = await Cards.find({})
+        const findAllCards = await Cards.find({})        
         //* |-> Buscaremos si existe una sala con ese codigo
         const findSalaCode = await Sala.find({ code: code })
         //* |-> Si no existe una clase con ese codigo devolveremos un error 404
@@ -120,9 +126,11 @@ const join_player_sala = async(req: Request, res: Response) => {
         let cards_player = cards.slice(1, 5)
         //* |-> Mappeamos el resultado para que solo devuelva el id de la carta aleatoria
         const new_cards_player = cards_player.map(
-            (e: any) => {
+            (e: any) => {                
                 return {
-                    id_cards: e._id
+                    id_cards: e._id,
+                    name_card: e.name_card,
+                    type: e.type
                 }
             }
         )
@@ -132,8 +140,12 @@ const join_player_sala = async(req: Request, res: Response) => {
         for (let i = 0; i < findAllCards.length; i++) {
             const e = findAllCards[i];            
             list.push({
-                id_card: e._id,
-                status: new_cards_player.find(x => x.id_cards === e._id) ? true : false
+                id_card: {
+                    _id: e._id,
+                    name_card: e.name_card,
+                    type: e.type,
+                    status: new_cards_player.find(x => x.id_cards === e._id) ? true : false
+                }
             })
         }
         //* |-> Crearemos el nuevo jugador
@@ -152,7 +164,7 @@ const join_player_sala = async(req: Request, res: Response) => {
         //* |-> Generamos el token
         const token = await generateJWT({code, id_user: new_player._id.toString()})
         //* |-> Respondemos un mensaje de exito al cliente
-        return resp(res, {status: 200, succ: true, msg: 'Se a unido correctamente a la sala', data: {code_sala: code, token, players: join_player.players}})
+        return resp(res, {status: 200, succ: true, msg: 'Se a unido correctamente a la sala', data: {code_sala: code, token, player_info: user}})
     } catch (err) {
         //*! Imprimimos el error por consola
         console.log(err);
@@ -165,15 +177,15 @@ const delete_sala = async(req: Request, res: Response) => {
     //* |-> Capturamos el id de la sala
     const { id } = req.params
     //* |-> Control de errores tryCatch
-    try {
+    try {        
         //* |-> Buscaremos la sala por ese id
-        const findSalaId = await Sala.findById(id)
+        const findSalaId = await Sala.findOne({id})        
         //* |-> Si no encuentra ningun documento retornaremos un error 404
         if (!findSalaId || findSalaId === undefined) {
             return resp(res, { status: 404, succ: false, msg: 'No se encontro la sala a eliminar' })
         }
         //* |-> Eliminaremos la sala junto con los participantes
-        await Sala.findByIdAndDelete(id)
+        await Sala.findByIdAndDelete(findSalaId._id)
         //* |-> Eliminaremos los usuarios de la partida
         await findSalaId.players.forEach(async(e: any) => {
             const {id_users} = e

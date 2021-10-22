@@ -7,16 +7,29 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./sala-espera.component.css']
 })
 export class SalaEsperaComponent implements OnInit {
+  
+  public players: any[] = []
+
+  public code: string = String(localStorage.getItem('code-game'))
 
   constructor( private apiservice: ApiService ) { }
 
-  private jugadores = [];
 
   ngOnInit(): void {
-    // this.apiservice.getData().subscribe( ({data}: any) => {
-    //   console.log(data);
-      
-    // } )
+    this.loadPlayers()
+    setInterval(()=>{
+        this.loadPlayers()
+    }, 20000)
+  }
+
+  loadPlayers(){
+    this.apiservice.loadPlayersGame(this.code).subscribe(
+      ({data}: any) => {
+        this.players = data
+        console.log(this.players);
+        
+      }
+    )
   }
 
 }

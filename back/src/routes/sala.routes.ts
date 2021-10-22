@@ -42,13 +42,13 @@
     //? $PUT
         //* |-> Ruta que enviara preguntas
         router.patch(
-            '/:id',
+            '/',
             [ valid$token ],
             questions_players
         )
         //* |-> Ruta que enviara y validara la acusacion
         router.patch(
-            '/accusation/:id',
+            '/accusation',
             [ valid$token ],
             accusation_players
         )

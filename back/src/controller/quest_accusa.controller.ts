@@ -65,7 +65,7 @@ const questions_players = async(req: Request, res: Response) => {
         //* |-> Actualizaremos el status del nuevo usuario
         const new_shift = await Players.findByIdAndUpdate(info, { status: true }, {new: true})
         //* |-> Añadiremos la pregunta en el arreglo para tener el historial
-        const new_questions = await Sala.findByIdAndUpdate(info_sala._id, { questions: [...info_sala.questions, {id_user_quest: id_user, question}] }, {new: true})
+        const new_questions = await Sala.findByIdAndUpdate(info_sala._id, { questions: [...info_sala.questions, {id_user_quest: id_user, question}] }, {new: true}).populate('questions.id_user_quest')
         //* |-> Respondemos la pregunta automaticamente despues de que se registre
         await answer_questions({code: code, info_sala: new_questions}, res)
         //* |-> Respondemos al cliente un mensaje de exito
@@ -105,12 +105,12 @@ const accusation_players = async(req: Request, res: Response) => {
             //* |-> Sabremos que en la sala hay un ganador
             win_player = true
             //* |-> Actualizaremos la informacion del jugador ganador y agregaremos el acusamiento
-            users_player = await Sala.findByIdAndUpdate(info_sala._id, { correct_accusation: {accusation: info_sala.correct_accusation.accusation, id_user_win: id_user}, accusations: [...info_sala.accusations, {id_user_accus: id_user, accusation}] }, {new: true}).populate('Players').populate('Cards')
+            users_player = await Sala.findByIdAndUpdate(info_sala._id, { correct_accusation: {accusation: info_sala.correct_accusation.accusation, id_user_win: id_user}, accusations: [...info_sala.accusations, {id_user_accus: id_user, accusation}] }, {new: true}).populate('accusations.id_user_accus')
         }else{
             //* |-> Sabemos que no hay jugadores ganados en la sala
             win_player = false
             //* |-> Solo agregamos el acusamiento sin mencionar un ganador
-            users_player = await Sala.findByIdAndUpdate(info_sala._id, { accusations: [...info_sala.accusations, {id_user_accus: id_user, accusation}] }, {new: true}).populate('Players').populate('Cards')
+            users_player = await Sala.findByIdAndUpdate(info_sala._id, { accusations: [...info_sala.accusations, {id_user_accus: id_user, accusation}] }, {new: true}).populate('correct_accusation.accusation.id_user_win')
         }
         //* |-> Buscaremos el index de de la posicion actual
         const index_player: number = SalaId.indexOf(id_user)
@@ -172,7 +172,7 @@ const answer_questions = async(sala:{code: string, info_sala: any}, res: Respons
             new_list_player.push(new_list)            
         }
         //* |-> Actualizaremos la lista del jugador que pregunto
-        const player_list = await Players.findByIdAndUpdate(info.id_user_quest, { list: new_list_player }, { new: true })
+        const player_list = await Players.findByIdAndUpdate(info.id_user_quest, { list: new_list_player }, { new: true }).populate('list.id_card')
         //* |-> Respondemos un mensaje de exito
         return resp(res, {status: 200, succ: true, msg: 'lista actualizada', data: player_list})
     } catch (err) {

@@ -43,14 +43,24 @@
     
 }
 /* esa es la imagen de la carta */
-.img-carta{
+.img-carta .img{
     height: 90%;
     width: 100%;
     background-color: rgb(73, 73, 73);
     
 }
 
+.oculta{
+    filter: grayscale(100%);
+    
+}
 
+.oculta:hover{
+    transform: none;
+    -webkit-box-shadow: none ; 
+    box-shadow: none;
+    cursor:default;
+}
 
 /* --------------TABLERO--------- */
 
