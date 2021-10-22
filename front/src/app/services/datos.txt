@@ -1,0 +1,14 @@
+"data": {
+        "code_sala": "zHCEg",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2RlIjoiekhDRWciLCJpZF91c2VyIjoiNjE3MWJkMmRjZDFjMmQ4MmFmM2YwNTlkIiwiaWF0IjoxNjM0ODQzOTQ5LCJleHAiOjE2MzQ4NTQ3NDl9.1f18WPb4vbQI5kXN7ii_EQn2rIBLxz8NE2MU7IArUN0",
+        "players": [
+            {
+                "id_users": "6171bd22cd1c2d82af3f0581",
+                "_id": "6171bd22cd1c2d82af3f0596"
+            },
+            {
+                "id_users": "6171bd2dcd1c2d82af3f059d",
+                "_id": "6171bd2dcd1c2d82af3f05b0"
+            }
+        ]
+}

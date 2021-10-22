@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  url_conect: "https://sena-nexus-back.herokuapp.com/soft/v1/api"
 };
 
 /*

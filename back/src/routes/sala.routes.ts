@@ -4,9 +4,9 @@
     import { Router } from 'express'
     //* |-> Controlladores
         //? -_ Controlladores de sala
-        import { create_sala, delete_sala, join_player_sala, renew_token } from '../controller/sala.controller'
+        import { create_sala, delete_sala, join_player_sala, renew_token, sala_players } from '../controller/sala.controller'
         //? -_ Controlladores de pregustas
-        import { accusation_players, answer_questions, questions_players } from '../controller/quest_accusa.controller'
+        import { accusation_players, questions_players } from '../controller/quest_accusa.controller'
     //* |-> Middlewares
     import { valid$token } from '../middleware/JWT.middleware'
 /***********/
@@ -19,6 +19,12 @@
             '/renew-token',
             [ valid$token ],
             renew_token
+        )
+        //* |-> Ruta que mostrara los jugadores de una sala
+        router.get(
+            '/:code',
+            [ valid$token ],
+            sala_players
         )
     //? $POST
         //* |-> Ruta que creara la sala
@@ -34,21 +40,15 @@
             join_player_sala
         )
     //? $PUT
-        //* |-> Ruta que respondera con una carta segun la respuesta
-        router.put(
-            '/:id',
-            [ valid$token ],
-            answer_questions
-        )
         //* |-> Ruta que enviara preguntas
         router.patch(
-            '/:id',
+            '/',
             [ valid$token ],
             questions_players
         )
         //* |-> Ruta que enviara y validara la acusacion
         router.patch(
-            '/accusation/:id',
+            '/accusation',
             [ valid$token ],
             accusation_players
         )

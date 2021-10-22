@@ -1,0 +1,68 @@
+<!-- Creación del componente Home -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Container principal del body -->
+    <div class="area">
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="container-fluid p-0">
+
+        <div id="contenedor">
+            <div class="row p-0 m-0">
+                <div class="col-12 pt-4">
+                    <h1 class="text-center text-white titulo animate__animated animate__bounce">
+                        SALA DE ESPERA
+                    </h1>
+                </div>
+            </div>
+
+            <div class="row p-0 m-0">
+                <div class="col text-center">
+                    <h2 class="bg-white" id="codigo">CODIGO: {{code}}</h2>
+                </div>
+            </div>
+
+            <div class="row m-0" id="jugadores">
+
+                <div class="col-6 mx-auto jugador p-2 animate__animated animate__zoomIn" *ngFor="let ip of players">
+                    <div class="row centrar-v text-center">
+                        <i class="fas fa-user-circle"></i>
+                        <h1 class="">{{ip.id_users.name}}</h1>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="row m-0">
+                <div class="col-12 text-center" id="boton-empezar">
+                    <button type="submit" class="btn btn-primary" [disabled]="players.length < 4" routerLink="/tableros">COMENZAR</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
