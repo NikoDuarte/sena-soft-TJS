@@ -1,0 +1,281 @@
+/* importamos un estilo de letra de google-fontts  (font-family: 'Exo', sans-serif;) */
+@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+
+
+/* este es el contenedor principal de nuestro componenete tablero */
+#contenedor{
+    background-color: #2997D8;
+    height: 100vh;
+}
+
+/* este es el tamaño de la columna que contiene las cartas */
+.tit .col-6{
+    height: 170px;
+}
+/* este es el contenedor del tablero y la pregunta (parte superior) */
+.cont{
+    position: relative;
+    margin-top: auto;
+}
+/* este es el texto de la pregunta */
+#txt-pregunta h1{
+    font-size: 30px;
+    margin-bottom: 2%;
+    margin-top: 3%;
+    font-weight: bold;
+    text-shadow: 0px 0px 10px rgba(100, 100, 100, 1);
+}
+/* este es el logo del chat */
+.fa-comment{
+    color: white;
+    font-size: 50px;
+}
+
+/* estos son los estilos de las cartas dentro de esta se encientra las imagenes y el nombre (mis cartas)*/
+.carta{
+    height: 180px;
+    width: 164px;
+    margin-bottom: 12%;
+    background-color: whitesmoke;
+    padding: 11px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+/* esa es la imagen de la carta */
+.img-carta{
+    height: 90%;
+    width: 100%;
+    background-color: rgb(73, 73, 73);
+    
+}
+
+
+
+/* --------------TABLERO--------- */
+
+/* este es el contenedor tabla aqui setan todas las cartas */
+#tabla{
+    width: 100%;
+    background-color: white;
+    margin-bottom: 0%;
+}
+
+/* estas son las cartas del tablero */
+.carta-tablero{
+    height: 100%;
+    background-color: whitesmoke;
+    padding: 11px;
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+/* estos son los titulos de los grupos de cartas */
+
+.titulo-cartas{
+
+    color: #003087;
+}
+
+/* este es el efecto hover de las cartas */
+.carta-tablero:hover{
+    cursor: pointer;
+    transition: all 1s;
+    transform: scale(1.04);
+    -webkit-box-shadow: 0px 9px 38px -8px rgba(0,48,135,0.87); 
+    box-shadow: 0px 9px 38px -8px rgba(0,48,135,0.87);
+
+    cursor: pointer;
+    
+}
+
+/* este es el nombre de la parte inferior de cada carta de la tabla */
+.carta-tablero span{
+
+    color: #003087;
+    font-size: 1.2rem;
+}
+
+/* este es el conted¿nedor de la imagen de cada carta del tablero */
+.img-carta-tabla{
+    height: 90%;
+    width: 100%;
+    background-color: rgb(73, 73, 73);
+    
+}
+
+/* esta es la imagen de cada tablero */
+.img-carta-tabla img{
+    height: 100%;
+    width: 100%;
+    
+}
+
+/* botonees centrados */
+.botones{
+    text-align: center;
+}
+
+/* estilos de los botones preguntar y acusar */
+#btn-preguntar, #btn-acusar{
+    margin-top: 3%;
+    padding: 2%;
+    width: 50%;
+    font-size: x-large;
+    box-shadow: 0px 0px 15px -4px #000000;
+}
+/* chat */
+
+.div-chat{
+    position: relative;
+}
+#mensaje{
+    cursor: pointer;
+}
+.modal-footer textarea{
+    resize: none;
+    height: 38px;
+    margin: 2%;
+}
+.modal-title{
+    font-weight: 500;
+}
+.modal-body{
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+#app-animacion{
+    position: relative;
+}
+
+/* -------ANIMACION DEL FONDE DE PATALLA------- */
+
+/* estabelecemos el estilo de letra */
+body{
+    font-family: 'Exo', sans-serif;
+}
+
+/* bacgrooud de nuestra animacion */
+.area{
+    background: #2997d8;  
+    background: -webkit-linear-gradient(to left, #fff, #2997d8);  
+    width: 100%;
+}
+
+/* circulos de la animacion (con sus hijos */
+.circles{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.circles li{
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+    
+}
+
+.circles li:nth-child(1){
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+
+
+.circles li:nth-child(2){
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.circles li:nth-child(3){
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+.circles li:nth-child(4){
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.circles li:nth-child(5){
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.circles li:nth-child(6){
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+}
+
+.circles li:nth-child(7){
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+}
+
+.circles li:nth-child(8){
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+
+.circles li:nth-child(9){
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+.circles li:nth-child(10){
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+
+/* animacion de los circulos */
+
+@keyframes animate {
+
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+
+    100%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+
+}
+
