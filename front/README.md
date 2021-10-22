@@ -1,27 +1,60 @@
-# AngularSenasoft
+Documentacion Front-End GUB 🧑🏻‍💻
+Descripcion 📃:
+implementación del frontend con Angular para el desarrollo de interfaces de usuarios meidante componentes, servicios, etc.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.10.
+Inicializar proyecto 🤯:
+Al tener el proyecto localmente se ejecutará en la terminal 'npm install' para descargar los paquetes de node.
+Posteriormente se subirán los servicios del proyecto con el comando 'ng serve'.
 
-## Development server
+Tecnologias para el Front-End:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Angular
+- TypeScript
+- JavaScript
+- HTML
+- CSS
 
-## Code scaffolding
+Estructura de carpetas 📂:
+Una estructura de carpetas del proyecto front con Angular
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+    |_.browserslistrc
+    |_.editorconfig
+    |_.gitignore
+    |_angular.json
+    |_karma.conf.js
+    |_package-lock.json
+    |_package.json
+    |_tsconfig.app.json
+    |_tsconfig.json
+    |_tsconfig.spec.json
+    |_src
+        |__app
+            |__Carpetas de components, guards, models, pages, services
+        |__assets
+            |__Carpeta de imagenes
+        |__environments
+            |__Archivos de environments
+        |_index.html
+        |_main.ts
+        |_styles.css
+        
 
-## Build
+Rutas actuales:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Home: URL / || URL /home
+Salas: URL /sala
+Unirse: URL /unirse
+Ganador: URL /ganador
 
-## Running unit tests
+Recomendaciones 👀:
+Leer la documentacion del README.md
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Nicolas Duarte 🎉
+Miller Nivia 🎉
+Kevin Fraile 🎉
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+ ▐ ▄ ▄ •▄     
+•█▌▐██▌▄▌▪    
+▐█▐▐▌▐▀▀▄·    
+██▐█▌▐█.█▌    
+▀▀ █▪·▀
