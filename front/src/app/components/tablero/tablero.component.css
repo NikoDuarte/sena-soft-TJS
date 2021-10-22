@@ -79,7 +79,7 @@
 
 /* este es el efecto hover de las cartas */
 .carta-tablero:hover{
-
+    cursor: pointer;
     transition: all 1s;
     transform: scale(1.04);
     -webkit-box-shadow: 0px 9px 38px -8px rgba(0,48,135,0.87); 

@@ -70,12 +70,19 @@
                 <div class="row tit">
                     <!-- titulo de el grupo de cartas "PROGRAMADORES" -->
                     <h2 class="titulo-cartas">PROGRAMADORES</h2>
+<<<<<<< HEAD
+                    <div class="col-6 col-md prog1" *ngFor="let ci of cards?.quien">
+=======
                     <div class="col-6 col-md prog1 ">
                         <!-- carta del tablero -->
+>>>>>>> fcdc29234a9b4f7eb88d8257d6e702a43dd40214
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarNombre()">
                             <div class="img-carta-tabla mb-1">
-                                <img src="../../../assets/img/Carolina.svg" alt="">
+                                <img src="https://sena-nexus-back.herokuapp.com/soft/v1/api/files?id={{ci._id}}" [alt]="ci.name_card">
                             </div>
+<<<<<<< HEAD
+                            <span>{{ci.name_card}}</span>
+=======
                             <span>Nombre</span>
                         </div>
                     </div>
@@ -131,12 +138,16 @@
                                 <img src="../../../assets/img/Pedro.svg" alt="">
                             </div>
                             <span>Nombre</span>
+>>>>>>> fcdc29234a9b4f7eb88d8257d6e702a43dd40214
                         </div>
                     </div>
                 </div>
                 <!-- titulo del grupo de cartas "MODULOS" -->
                 <h2 class="titulo-cartas">MODULOS</h2>
                 <div class="row tit">
+<<<<<<< HEAD
+                    <div class="col-6 col-md" *ngFor="let cm of cards?.modulo">
+=======
                     <div class="col-6 col-md">
                         <!-- carta del tablero -->
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarModulo()">
@@ -157,10 +168,14 @@
                     </div>
                     <div class="col-6 col-md">
                         <!-- carta del tablero -->
+>>>>>>> fcdc29234a9b4f7eb88d8257d6e702a43dd40214
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarModulo()">
                             <div class="img-carta-tabla mb-1">
-                                <img src="../../../assets/img/Contabilidad.png" alt="">
+                                <img src="https://sena-nexus-back.herokuapp.com/soft/v1/api/files?id={{cm._id}}" [alt]="cm.name_card">
                             </div>
+<<<<<<< HEAD
+                            <span>{{cm.name_card}}</span>
+=======
                             <span>Nombre</span>
                         </div>
                     </div>
@@ -189,6 +204,7 @@
                                 <img src="../../../assets/img/Comprobante-contable.png" alt="">
                             </div>
                             <span>Nombre</span>
+>>>>>>> fcdc29234a9b4f7eb88d8257d6e702a43dd40214
                         </div>
                     </div>
                     <!-- espacio de una "carta" ccarta vacia (solo el espacio) -->
@@ -198,6 +214,12 @@
                 <!-- titulo del grupode cartas "ERRORES" -->
                 <h2 class="titulo-cartas">ERRORES</h2>
                 <div class="row tit">
+<<<<<<< HEAD
+                    <div class="col-6 col-md" *ngFor="let ce of cards?.error">
+                        <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarError()">
+                            <div class="img-carta-tabla mb-1">
+                                <img src="https://sena-nexus-back.herokuapp.com/soft/v1/api/files?id={{ce._id}}" [alt]="ce.name_card">
+=======
                     <div class="col-6 col-md">
                         <!-- carta del tablero -->
                         <div class="carta-tablero animate__animated animate__zoomIn" (click)="mostrarError()">
@@ -248,8 +270,9 @@
                         <div class="carta-tablero animate__animated animate__zoomIn">
                             <div class="img-carta-tabla mb-1">
                                 <img src="../../../assets/img/Encoding error.png" alt="">
+>>>>>>> fcdc29234a9b4f7eb88d8257d6e702a43dd40214
                             </div>
-                            <span>Nombre</span>
+                            <span>{{ce.name_card}}</span>
                         </div>
                     </div>
                     <div class="col-6 col-md">
